@@ -9,16 +9,19 @@ const JsonValue = styled.div`
 display: inline;
 color: ${(props) => {
     if (props.type === 'string') {
-      return 'green'
+      return '#ffffff'
     } else if (props.type === 'boolean') {
-      return 'red'
+      return 'pink'
+    } else if (props.type === 'number') {
+      return '#ffffff'
     } else {
-      return 'blue'
+      return '#ffc600'
     }
   }};
 `
 const JsonKey = styled.div`
- color: darkblue;
+ color: #ffc600;
+ padding-left: 8px;
  display: inline;
  &:after {
       content: ': ';
@@ -57,8 +60,6 @@ const JsonItemCollapsible = styled.div`
 `
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
-  // Hide checkbox visually but remain accessible to screen readers.
-  // Source: https://polished.js.org/docs/#hidevisually
   border: 0;
   clip: rect(0 0 0 0);
   clippath: inset(50%);
@@ -106,16 +107,11 @@ const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
 `
-
-// const JsonToggle = styled.input`
-// display: inline;
-//   &:checked ~ ${JsonItem} {
-//       display: block;
-//   }
-// `
 const JsonWrapper = styled.div`
   font-family: 'Source Code Pro', monospace;
-  font-size: 16px;  
+  font-size: 12px;
+  background-color: #172b3a; 
+
   & > {
         ${JsonItem} {
             display: block;
